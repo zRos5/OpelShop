@@ -9,11 +9,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="Assets\LogoOpel.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Resource Include="Assets\LogoOpel.png" />
+		<Resource Include="Assets\**\*.png" />
+		<Resource Include="Assets\**\*.jpg" />
 	</ItemGroup>
 
 </Project>
