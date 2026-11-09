@@ -8,4 +8,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove=".gitattributes" />
+    <None Remove="Assets\LogoOpel.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include=".gitattributes" />
+    <Resource Include="Assets\LogoOpel.png" />
+  </ItemGroup>
+
 </Project>
