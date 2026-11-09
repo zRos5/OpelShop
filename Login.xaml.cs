@@ -11,7 +11,22 @@ namespace OpelShop
         public Login()
         {
             InitializeComponent();
-            Loaded += (s, e) => txtUsuario.Focus();
+            Loaded += (s, e) =>
+            {
+                // Si el usuario viene de crear una cuenta, se le deja el usuario rellenado
+                if (Usuarios.UltimoRegistrado != "")
+                {
+                    txtUsuario.Text = Usuarios.UltimoRegistrado;
+                    txtOk.Text = "Cuenta creada. Ya puedes iniciar sesión.";
+                    panelOk.Visibility = Visibility.Visible;
+                    Usuarios.UltimoRegistrado = "";
+                    txtPassword.Focus();
+                }
+                else
+                {
+                    txtUsuario.Focus();
+                }
+            };
         }
 
         private void Entrar_Click(object sender, RoutedEventArgs e)
@@ -36,15 +51,21 @@ namespace OpelShop
                 return;
             }
 
-            if (usuario != "cliente" || clave != "Opel2026")
+            if (!Usuarios.Validar(usuario, clave))
             {
-                MostrarError("Usuario o contraseña incorrectos. Revisa los datos e inténtalo de nuevo.");
+                MostrarError("Usuario o contraseña incorrectos. Revisa los datos o crea una cuenta.");
                 txtPassword.Clear();
                 txtPassword.Focus();
                 return;
             }
 
+            txtOk.Text = "Acceso correcto. ¡Bienvenido!";
             panelOk.Visibility = Visibility.Visible;
+        }
+
+        private void IrRegistro_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).IrA("Registro.xaml");
         }
 
         private void MostrarError(string mensaje)
@@ -54,7 +75,7 @@ namespace OpelShop
             Sacudir();
         }
 
-        // Animación 3: sacudida corta de la tarjeta cuando hay un error
+        // Sacudida corta de la tarjeta cuando hay un error
         private void Sacudir()
         {
             var animacion = new DoubleAnimationUsingKeyFrames();

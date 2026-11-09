@@ -25,13 +25,17 @@ namespace OpelShop
         public void IrA(string pagina)
         {
             Contenido.Navigate(new Uri(pagina, UriKind.Relative));
+
+            // La pantalla de registro cuenta como parte de "Acceso"
+            string seccion = pagina == "Registro.xaml" ? "Login.xaml" : pagina;
+
             foreach (var rb in new[] { btnInicio, btnProductos, btnAcceso })
             {
-                rb.IsChecked = (string)rb.Tag == pagina;
+                rb.IsChecked = (string)rb.Tag == seccion;
             }
         }
 
-        // Animación 1: fundido de entrada al cambiar de pantalla
+        // Fundido de entrada al cambiar de pantalla
         private void Contenido_Navigated(object sender, NavigationEventArgs e)
         {
             var fundido = new DoubleAnimation(0, 1, TimeSpan.FromMilliseconds(300));

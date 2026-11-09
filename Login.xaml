@@ -31,7 +31,7 @@
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="⚠" Foreground="#B00020" FontSize="16" Margin="0,0,8,0"/>
 						<TextBlock x:Name="txtError" Foreground="#B00020"
-                                   TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                   TextWrapping="Wrap" VerticalAlignment="Center" MaxWidth="290"/>
 					</StackPanel>
 				</Border>
 
@@ -41,16 +41,22 @@
                         Padding="10,8" Margin="0,16,0,0">
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="✔" Foreground="#2E7D32" FontSize="16" Margin="0,0,8,0"/>
-						<TextBlock Text="Acceso correcto. ¡Bienvenido!" Foreground="#2E7D32"
-                                   VerticalAlignment="Center"/>
+						<TextBlock x:Name="txtOk" Foreground="#2E7D32"
+                                   TextWrapping="Wrap" VerticalAlignment="Center" MaxWidth="290"/>
 					</StackPanel>
 				</Border>
 
 				<Button Content="Entrar" IsDefault="True" Click="Entrar_Click"
                         Style="{StaticResource BotonPrimario}" Margin="0,24,0,0" TabIndex="2"/>
 
+				<TextBlock Margin="0,16,0,0" HorizontalAlignment="Center">
+					<Run Text="¿Aún no tienes cuenta? "/>
+					<Hyperlink Click="IrRegistro_Click" Foreground="{StaticResource Negro}"
+                               FontWeight="SemiBold">Regístrate</Hyperlink>
+				</TextBlock>
+
 				<TextBlock Text="Usuario de prueba: cliente / Opel2026" FontSize="12"
-                           Foreground="#777777" Margin="0,16,0,0" HorizontalAlignment="Center"/>
+                           Foreground="#777777" Margin="0,12,0,0" HorizontalAlignment="Center"/>
 			</StackPanel>
 		</Border>
 	</Grid>
