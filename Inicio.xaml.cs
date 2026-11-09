@@ -11,6 +11,12 @@ namespace OpelShop
             InitializeComponent();
             listaNovedades.ItemsSource = Coche.Catalogo.Where(c => c.EsNovedad).ToList();
             listaPrecios.ItemsSource = Coche.Catalogo.OrderBy(c => c.Precio).Take(3).ToList();
+
+            if (Usuarios.HaySesion)
+            {
+                txtSaludo.Text = "Hola, " + Usuarios.UsuarioActual + ". Bienvenido de nuevo.";
+                txtSaludo.Visibility = Visibility.Visible;
+            }
         }
 
         private void VerProductos_Click(object sender, RoutedEventArgs e)

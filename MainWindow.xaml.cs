@@ -35,6 +35,22 @@ namespace OpelShop
             }
         }
 
+        // Muestra u oculta el saludo y el botón de cerrar sesión
+        public void ActualizarSesion()
+        {
+            bool hay = Usuarios.HaySesion;
+            btnAcceso.Visibility = hay ? Visibility.Collapsed : Visibility.Visible;
+            panelSesion.Visibility = hay ? Visibility.Visible : Visibility.Collapsed;
+            txtUsuarioActual.Text = "Hola, " + Usuarios.UsuarioActual;
+        }
+
+        private void CerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            Usuarios.CerrarSesion();
+            ActualizarSesion();
+            IrA("Inicio.xaml");
+        }
+
         // Fundido de entrada al cambiar de pantalla
         private void Contenido_Navigated(object sender, NavigationEventArgs e)
         {

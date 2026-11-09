@@ -8,10 +8,14 @@ namespace OpelShop
         private static readonly Dictionary<string, string> cuentas =
             new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
-                   { "cliente", "Opel2026" }
+                { "cliente", "Opel2026" }
             };
 
         public static string UltimoRegistrado { get; set; } = "";
+
+        // Usuario que ha iniciado sesión ("" si no hay nadie)
+        public static string UsuarioActual { get; private set; } = "";
+        public static bool HaySesion => UsuarioActual != "";
 
         public static bool Existe(string usuario) => cuentas.ContainsKey(usuario);
 
@@ -23,5 +27,9 @@ namespace OpelShop
 
         public static bool Validar(string usuario, string clave) =>
             cuentas.TryGetValue(usuario, out var guardada) && guardada == clave;
+
+        public static void IniciarSesion(string usuario) => UsuarioActual = usuario;
+
+        public static void CerrarSesion() => UsuarioActual = "";
     }
 }

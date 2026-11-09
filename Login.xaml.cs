@@ -59,8 +59,11 @@ namespace OpelShop
                 return;
             }
 
-            txtOk.Text = "Acceso correcto. ¡Bienvenido!";
-            panelOk.Visibility = Visibility.Visible;
+            // Acceso correcto: se guarda la sesión, se actualiza la cabecera y se va a Inicio
+            Usuarios.IniciarSesion(usuario);
+            var ventana = (MainWindow)Application.Current.MainWindow;
+            ventana.ActualizarSesion();
+            ventana.IrA("Inicio.xaml");
         }
 
         private void IrRegistro_Click(object sender, RoutedEventArgs e)
