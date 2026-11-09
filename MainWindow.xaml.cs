@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 
 namespace OpelShop
 {
@@ -9,6 +11,7 @@ namespace OpelShop
         public MainWindow()
         {
             InitializeComponent();
+            Contenido.Navigated += Contenido_Navigated;
             Contenido.Navigate(new Uri("Inicio.xaml", UriKind.Relative));
         }
 
@@ -26,6 +29,13 @@ namespace OpelShop
             {
                 rb.IsChecked = (string)rb.Tag == pagina;
             }
+        }
+
+        // Animación 1: fundido de entrada al cambiar de pantalla
+        private void Contenido_Navigated(object sender, NavigationEventArgs e)
+        {
+            var fundido = new DoubleAnimation(0, 1, TimeSpan.FromMilliseconds(300));
+            Contenido.BeginAnimation(UIElement.OpacityProperty, fundido);
         }
     }
 }

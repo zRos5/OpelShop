@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace OpelShop
 {
@@ -48,6 +51,21 @@ namespace OpelShop
         {
             txtError.Text = mensaje;
             panelError.Visibility = Visibility.Visible;
+            Sacudir();
+        }
+
+        // Animación 3: sacudida corta de la tarjeta cuando hay un error
+        private void Sacudir()
+        {
+            var animacion = new DoubleAnimationUsingKeyFrames();
+            double[] posiciones = { -8, 8, -6, 6, -3, 0 };
+            for (int i = 0; i < posiciones.Length; i++)
+            {
+                animacion.KeyFrames.Add(new LinearDoubleKeyFrame(
+                    posiciones[i],
+                    KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(60 * (i + 1)))));
+            }
+            desplazamiento.BeginAnimation(TranslateTransform.XProperty, animacion);
         }
     }
 }

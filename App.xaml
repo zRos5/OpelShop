@@ -1,91 +1,123 @@
 ﻿<Application x:Class="OpelShop.App"
-                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                xmlns:local="clr-namespace:OpelShop"
-                StartupUri="MainWindow.xaml">
-    <Application.Resources>
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:OpelShop"
+             StartupUri="MainWindow.xaml">
+	<Application.Resources>
 
-        <!-- Colores de la app -->
-        <SolidColorBrush x:Key="Amarillo" Color="#FFDD00"/>
-        <SolidColorBrush x:Key="Negro" Color="#1A1A1A"/>
-        <SolidColorBrush x:Key="FondoApp" Color="#F4F4F4"/>
+		<!-- Colores de la app -->
+		<SolidColorBrush x:Key="Amarillo" Color="#FFDD00"/>
+		<SolidColorBrush x:Key="Negro" Color="#1A1A1A"/>
+		<SolidColorBrush x:Key="FondoApp" Color="#F4F4F4"/>
 
-        <!-- Estilo de las pestañas del menú -->
-        <Style x:Key="BotonMenu" TargetType="RadioButton">
-            <Setter Property="Foreground" Value="{StaticResource Negro}"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Margin" Value="8,0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="Borde" Padding="14,8" BorderThickness="0,0,0,3"
-                                   BorderBrush="Transparent" Background="Transparent">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Borde" Property="Background" Value="#11000000"/>
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Borde" Property="BorderBrush" Value="{StaticResource Amarillo}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+		<!-- Estilo de las pestañas del menú -->
+		<Style x:Key="BotonMenu" TargetType="RadioButton">
+			<Setter Property="Foreground" Value="{StaticResource Negro}"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="Margin" Value="8,0"/>
+			<Setter Property="Cursor" Value="Hand"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="RadioButton">
+						<Border x:Name="Borde" Padding="14,8" BorderThickness="0,0,0,3"
+                                BorderBrush="Transparent" Background="Transparent">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Borde" Property="Background" Value="#11000000"/>
+							</Trigger>
+							<Trigger Property="IsChecked" Value="True">
+								<Setter TargetName="Borde" Property="BorderBrush" Value="{StaticResource Amarillo}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
-        <!-- Estilo del botón principal (amarillo) -->
-        <Style x:Key="BotonPrimario" TargetType="Button">
-            <Setter Property="Background" Value="{StaticResource Amarillo}"/>
-            <Setter Property="Foreground" Value="{StaticResource Negro}"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Height" Value="42"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="Borde" Background="{TemplateBinding Background}"
-                                   CornerRadius="4" Padding="16,0" BorderThickness="2"
-                                   BorderBrush="Transparent">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Borde" Property="Background" Value="#E6C700"/>
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="Borde" Property="BorderBrush" Value="{StaticResource Negro}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+		<!-- Estilo del botón principal (amarillo) -->
+		<Style x:Key="BotonPrimario" TargetType="Button">
+			<Setter Property="Background" Value="{StaticResource Amarillo}"/>
+			<Setter Property="Foreground" Value="{StaticResource Negro}"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="Height" Value="42"/>
+			<Setter Property="Cursor" Value="Hand"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border x:Name="Borde" Background="{TemplateBinding Background}"
+                                CornerRadius="4" Padding="16,0" BorderThickness="2"
+                                BorderBrush="Transparent">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Borde" Property="Background" Value="#E6C700"/>
+							</Trigger>
+							<Trigger Property="IsKeyboardFocused" Value="True">
+								<Setter TargetName="Borde" Property="BorderBrush" Value="{StaticResource Negro}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 
-        <!-- Tarjeta de coche (la usan Inicio y Galería) -->
-        <DataTemplate x:Key="TarjetaCoche">
-            <Border Width="260" Margin="0,0,16,16" Background="White" CornerRadius="8"
-                       BorderBrush="#DDDDDD" BorderThickness="1">
-                <StackPanel>
-                    <Grid Height="150" Background="#E9E9E9">
-                        <TextBlock Text="{Binding Nombre}" Foreground="#666666" FontSize="14"
-                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Image Source="{Binding Imagen}" Stretch="UniformToFill"
-                                  AutomationProperties.Name="{Binding Nombre}"/>
-                    </Grid>
-                    <StackPanel Margin="16">
-                        <TextBlock Text="{Binding Nombre}" FontSize="20" FontWeight="Bold"
-                                      Foreground="{StaticResource Negro}"/>
-                        <TextBlock Text="{Binding Tipo}" Foreground="#666666"/>
-                        <TextBlock Text="{Binding PrecioTexto}" FontSize="18" FontWeight="SemiBold"
-                                      Margin="0,8,0,0"/>
-                    </StackPanel>
-                </StackPanel>
-            </Border>
-        </DataTemplate>
+		<!-- Tarjeta de coche (la usan Inicio y Galería), con zoom al pasar el ratón -->
+		<DataTemplate x:Key="TarjetaCoche">
+			<Border x:Name="Tarjeta" Width="260" Margin="0,0,16,16" Background="White"
+                    CornerRadius="8" BorderBrush="#DDDDDD" BorderThickness="1"
+                    RenderTransformOrigin="0.5,0.5">
+				<Border.RenderTransform>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+				</Border.RenderTransform>
+				<StackPanel>
+					<Grid Height="150" Background="#E9E9E9">
+						<TextBlock Text="{Binding Nombre}" Foreground="#666666" FontSize="14"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						<Image Source="{Binding Imagen}" Stretch="UniformToFill"
+                               AutomationProperties.Name="{Binding Nombre}"/>
+					</Grid>
+					<StackPanel Margin="16">
+						<TextBlock Text="{Binding Nombre}" FontSize="20" FontWeight="Bold"
+                                   Foreground="{StaticResource Negro}"/>
+						<TextBlock Text="{Binding Tipo}" Foreground="#666666"/>
+						<TextBlock Text="{Binding PrecioTexto}" FontSize="18" FontWeight="SemiBold"
+                                   Margin="0,8,0,0"/>
+					</StackPanel>
+				</StackPanel>
+			</Border>
+			<DataTemplate.Triggers>
+				<Trigger SourceName="Tarjeta" Property="IsMouseOver" Value="True">
+					<Trigger.EnterActions>
+						<BeginStoryboard>
+							<Storyboard>
+								<DoubleAnimation Storyboard.TargetName="Tarjeta"
+                                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                                 To="1.04" Duration="0:0:0.15"/>
+								<DoubleAnimation Storyboard.TargetName="Tarjeta"
+                                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                                 To="1.04" Duration="0:0:0.15"/>
+							</Storyboard>
+						</BeginStoryboard>
+					</Trigger.EnterActions>
+					<Trigger.ExitActions>
+						<BeginStoryboard>
+							<Storyboard>
+								<DoubleAnimation Storyboard.TargetName="Tarjeta"
+                                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                                 To="1" Duration="0:0:0.15"/>
+								<DoubleAnimation Storyboard.TargetName="Tarjeta"
+                                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                                 To="1" Duration="0:0:0.15"/>
+							</Storyboard>
+						</BeginStoryboard>
+					</Trigger.ExitActions>
+				</Trigger>
+			</DataTemplate.Triggers>
+		</DataTemplate>
 
-    </Application.Resources>
+	</Application.Resources>
 </Application>
