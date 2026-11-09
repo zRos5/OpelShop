@@ -18,13 +18,13 @@
                           ToolTip="Opel" AutomationProperties.Name="Logotipo de Opel"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
                                VerticalAlignment="Center">
-                    <RadioButton Content="Inicio" GroupName="Menu" IsChecked="True"
-                                    Tag="Inicio.xaml" Click="Menu_Click"
+                    <RadioButton x:Name="btnInicio" Content="Inicio" GroupName="Menu"
+                                    IsChecked="True" Tag="Inicio.xaml" Click="Menu_Click"
                                     Style="{StaticResource BotonMenu}"/>
-                    <RadioButton Content="Productos" GroupName="Menu"
+                    <RadioButton x:Name="btnProductos" Content="Productos" GroupName="Menu"
                                     Tag="Galeria.xaml" Click="Menu_Click"
                                     Style="{StaticResource BotonMenu}"/>
-                    <RadioButton Content="Acceso" GroupName="Menu"
+                    <RadioButton x:Name="btnAcceso" Content="Acceso" GroupName="Menu"
                                     Tag="Login.xaml" Click="Menu_Click"
                                     Style="{StaticResource BotonMenu}"/>
                 </StackPanel>

@@ -17,5 +17,15 @@ namespace OpelShop
             var boton = (RadioButton)sender;
             Contenido.Navigate(new Uri((string)boton.Tag, UriKind.Relative));
         }
+
+        // Permite cambiar de página desde otras pantallas y marcar el menú
+        public void IrA(string pagina)
+        {
+            Contenido.Navigate(new Uri(pagina, UriKind.Relative));
+            foreach (var rb in new[] { btnInicio, btnProductos, btnAcceso })
+            {
+                rb.IsChecked = (string)rb.Tag == pagina;
+            }
+        }
     }
 }

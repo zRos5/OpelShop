@@ -1,21 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove=".gitattributes" />
-    <None Remove="Assets\LogoOpel.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Assets\LogoOpel.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include=".gitattributes" />
-    <Resource Include="Assets\LogoOpel.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\LogoOpel.png" />
+	</ItemGroup>
 
 </Project>

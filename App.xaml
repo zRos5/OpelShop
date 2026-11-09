@@ -65,5 +65,27 @@
             </Setter>
         </Style>
 
+        <!-- Tarjeta de coche (la usan Inicio y Galería) -->
+        <DataTemplate x:Key="TarjetaCoche">
+            <Border Width="260" Margin="0,0,16,16" Background="White" CornerRadius="8"
+                       BorderBrush="#DDDDDD" BorderThickness="1">
+                <StackPanel>
+                    <Grid Height="150" Background="#E9E9E9">
+                        <TextBlock Text="{Binding Nombre}" Foreground="#666666" FontSize="14"
+                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image Source="{Binding Imagen}" Stretch="UniformToFill"
+                                  AutomationProperties.Name="{Binding Nombre}"/>
+                    </Grid>
+                    <StackPanel Margin="16">
+                        <TextBlock Text="{Binding Nombre}" FontSize="20" FontWeight="Bold"
+                                      Foreground="{StaticResource Negro}"/>
+                        <TextBlock Text="{Binding Tipo}" Foreground="#666666"/>
+                        <TextBlock Text="{Binding PrecioTexto}" FontSize="18" FontWeight="SemiBold"
+                                      Margin="0,8,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>
