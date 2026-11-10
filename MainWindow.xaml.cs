@@ -21,18 +21,10 @@ namespace OpelShop
             Contenido.Navigate(new Uri((string)boton.Tag, UriKind.Relative));
         }
 
-        // Permite cambiar de página desde otras pantallas y marcar el menú
+        // Permite cambiar de página desde otras pantallas
         public void IrA(string pagina)
         {
             Contenido.Navigate(new Uri(pagina, UriKind.Relative));
-
-            // La pantalla de registro cuenta como parte de "Acceso"
-            string seccion = pagina == "Registro.xaml" ? "Login.xaml" : pagina;
-
-            foreach (var rb in new[] { btnInicio, btnProductos, btnAcceso })
-            {
-                rb.IsChecked = (string)rb.Tag == seccion;
-            }
         }
 
         // Muestra u oculta el saludo y el botón de cerrar sesión
@@ -56,6 +48,23 @@ namespace OpelShop
         {
             var fundido = new DoubleAnimation(0, 1, TimeSpan.FromMilliseconds(300));
             Contenido.BeginAnimation(UIElement.OpacityProperty, fundido);
+
+            // Sin historial: el botón "atrás" del ratón no puede cambiar de pantalla
+            while (Contenido.CanGoBack)
+            {
+                Contenido.RemoveBackEntry();
+            }
+
+            MarcarMenu(e.Content);
+        }
+
+        // Marca en el menú la sección de la página que se está viendo
+        private void MarcarMenu(object pagina)
+        {
+            btnInicio.IsChecked = pagina is Inicio;
+            btnProductos.IsChecked = pagina is Galeria;
+            // La pantalla de registro cuenta como parte de "Acceso"
+            btnAcceso.IsChecked = pagina is Login || pagina is Registro;
         }
     }
 }

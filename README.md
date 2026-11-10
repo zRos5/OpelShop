@@ -18,7 +18,7 @@ Prototipo de aplicación de escritorio (WPF, .NET 10) hecho con Microsoft Blend 
 1. Instalar Visual Studio con la carga de trabajo de escritorio de .NET y Blend, y el SDK de .NET 10.
 2. Clonar el repositorio:
    ```
-   git clone [COMPLETAR: https://github.com/TU-USUARIO/OpelShop.git]
+   git clone https://github.com/zRos5/OpelShop.git
    ```
 3. Abrir el archivo `OpelShop.slnx`.
 4. Pulsar **F5**.
@@ -49,13 +49,13 @@ Usuario de prueba (ficticio): `cliente` / `Opel2026`. También se puede crear un
 
 | Recurso | Origen | Licencia |
 | --- | --- | --- |
-| Logo de Opel | [COMPLETAR: enlace] | Marca registrada, uso académico |
-| Foto Opel Corsa | [COMPLETAR: enlace y autor] | [COMPLETAR] |
-| Foto Opel Frontera | [COMPLETAR: enlace y autor] | [COMPLETAR] |
-| Foto Opel Mokka | [COMPLETAR: enlace y autor] | [COMPLETAR] |
-| Foto Opel Combo | [COMPLETAR: enlace y autor] | [COMPLETAR] |
-| Foto Opel Grandland | [COMPLETAR: enlace y autor] | [COMPLETAR] |
-| Foto Opel Astra | [COMPLETAR: enlace y autor] | [COMPLETAR] |
+| Logo de Opel | [PNGWing](https://www.pngwing.com/es/free-png-bkooi) | Marca registrada, uso académico |
+| Foto Opel Corsa | [Qué coche me compro](https://www.quecochemecompro.com/fotos/opel-corsa/) | Derechos de su propietario; uso solo académico, sin fines comerciales |
+| Foto Opel Frontera | [Drivek](https://www.drivek.es/opel/frontera/) | Derechos de su propietario; uso solo académico, sin fines comerciales |
+| Foto Opel Mokka | [Opel España](https://www.opel.es/hub/datasheet/mokka-my26-es.html) | Derechos de su propietario; uso solo académico, sin fines comerciales |
+| Foto Opel Combo | [Opel Chiclana](https://www.opelchiclana.com/vehiculos-comerciales/opel/combo/furgon-3-puertas/2024/) | Derechos de su propietario; uso solo académico, sin fines comerciales |
+| Foto Opel Grandland | [Carwow](https://www.carwow.es/opel/grandland) | Derechos de su propietario; uso solo académico, sin fines comerciales |
+| Foto Opel Astra | [Fiat Eira Motor](https://www.fiateiramotor.com/coches/nuevos/opel/astra-plug-in-hybrid/familiar-5-puertas/2026/) | Derechos de su propietario; uso solo académico, sin fines comerciales |
 | Segoe UI (tipografía) | Viene con Windows | Licencia de Microsoft |
 
 No se han usado librerías ni plantillas de terceros, solo WPF y .NET.
