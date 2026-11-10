@@ -5,25 +5,48 @@
 	<ScrollViewer VerticalScrollBarVisibility="Auto">
 		<StackPanel Margin="32">
 
-			<!-- Banner: oferta de temporada -->
+			<!-- Banner: oferta de temporada, con texto a la izquierda y un coche eléctrico a la derecha -->
 			<Border Background="{StaticResource Negro}" CornerRadius="8" Padding="40">
-				<StackPanel MaxWidth="560" HorizontalAlignment="Left">
-					<TextBlock x:Name="txtSaludo" Visibility="Collapsed" FontSize="18"
-                               FontWeight="SemiBold" Foreground="{StaticResource Amarillo}"
-                               Margin="0,0,0,12"/>
-					<Border Background="{StaticResource Amarillo}" CornerRadius="4"
-                            Padding="10,4" HorizontalAlignment="Left">
-						<TextBlock Text="OFERTA DE INVIERNO" FontWeight="Bold" FontSize="12"
-                                   Foreground="{StaticResource Negro}"/>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<!-- Texto de la oferta -->
+					<StackPanel Grid.Column="0" MaxWidth="560" HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+						<TextBlock x:Name="txtSaludo" Visibility="Collapsed" FontSize="18"
+                                   FontWeight="SemiBold" Foreground="{StaticResource Amarillo}"
+                                   Margin="0,0,0,12"/>
+						<Border Background="{StaticResource Amarillo}" CornerRadius="4"
+                                Padding="10,4" HorizontalAlignment="Left">
+							<TextBlock Text="OFERTA DE INVIERNO" FontWeight="Bold" FontSize="12"
+                                       Foreground="{StaticResource Negro}"/>
+						</Border>
+						<TextBlock Text="Estrena tu Opel eléctrico" FontSize="36" FontWeight="Bold"
+                                   Foreground="White" Margin="0,16,0,8" TextWrapping="Wrap"/>
+						<TextBlock Text="Condiciones especiales en modelos seleccionados hasta fin de mes."
+                                   FontSize="16" Foreground="#DDDDDD" TextWrapping="Wrap"/>
+						<Button Content="Ver productos" Width="180" HorizontalAlignment="Left"
+                                Margin="0,24,0,0" Style="{StaticResource BotonPrimario}"
+                                Click="VerProductos_Click"/>
+					</StackPanel>
+
+					<!-- Coche eléctrico de la oferta -->
+					<Border Grid.Column="1" Margin="24,0,0,0" MinHeight="280" CornerRadius="8"
+                            AutomationProperties.Name="Foto del Opel Mokka Electric">
+						<Border.Background>
+							<ImageBrush ImageSource="Assets/Mokka.jpg" Stretch="UniformToFill"/>
+						</Border.Background>
+						<Border Background="{StaticResource Amarillo}" CornerRadius="4"
+                                Padding="12,6" HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom" Margin="16">
+							<TextBlock Text="Mokka Electric · 100 % eléctrico" FontWeight="Bold"
+                                       FontSize="13" Foreground="{StaticResource Negro}"/>
+						</Border>
 					</Border>
-					<TextBlock Text="Estrena tu Opel eléctrico" FontSize="36" FontWeight="Bold"
-                               Foreground="White" Margin="0,16,0,8" TextWrapping="Wrap"/>
-					<TextBlock Text="Condiciones especiales en modelos seleccionados hasta fin de mes."
-                               FontSize="16" Foreground="#DDDDDD" TextWrapping="Wrap"/>
-					<Button Content="Ver productos" Width="180" HorizontalAlignment="Left"
-                            Margin="0,24,0,0" Style="{StaticResource BotonPrimario}"
-                            Click="VerProductos_Click"/>
-				</StackPanel>
+				</Grid>
 			</Border>
 
 			<!-- Novedades -->
