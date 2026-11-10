@@ -14,7 +14,7 @@
 		<Grid Grid.Column="0" Background="#E9E9E9">
 			<Image Source="{Binding Imagen}" Stretch="Uniform" VerticalAlignment="Center"
                    AutomationProperties.Name="{Binding Nombre}"/>
-		</Grid>
+		</Grid>	
 
 		<!-- Información -->
 		<StackPanel Grid.Column="1" Margin="32">

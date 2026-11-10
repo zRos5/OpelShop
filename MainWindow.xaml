@@ -20,7 +20,7 @@
 						</Border>
 						<ControlTemplate.Triggers>
 							<Trigger Property="IsMouseOver" Value="True">
-								<Setter TargetName="Borde" Property="Background" Value="#11000000"/>
+								<Setter TargetName="Borde" Property="Background" Value="#22000000"/>
 							</Trigger>
 							<Trigger Property="IsKeyboardFocused" Value="True">
 								<Setter TargetName="Borde" Property="BorderThickness" Value="2"/>
@@ -38,9 +38,9 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<!-- Cabecera común a todas las pantallas -->
-		<Border Grid.Row="0" Background="White" Padding="24,10"
-                BorderBrush="#DDDDDD" BorderThickness="0,0,0,1">
+		<!-- Cabecera común a todas las pantallas (amarillo Opel con línea negra) -->
+		<Border Grid.Row="0" Background="{StaticResource Amarillo}" Padding="24,10"
+                BorderBrush="{StaticResource Negro}" BorderThickness="0,0,0,3">
 			<DockPanel>
 				<Image Source="Assets/LogoOpel.png" Height="40" DockPanel.Dock="Left"
                        ToolTip="Opel" AutomationProperties.Name="Logotipo de Opel"/>

@@ -11,7 +11,7 @@
                        Foreground="#555555" Margin="0,4,0,20"/>
 
 			<!-- Filtro por tipo -->
-			<StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,12">
 				<TextBlock Text="Tipo:" FontWeight="SemiBold" VerticalAlignment="Center"
                            Margin="0,0,12,0"/>
 				<ComboBox x:Name="cmbTipo" Width="200" Height="34" FontSize="15"
@@ -26,11 +26,12 @@
                            VerticalAlignment="Center" Margin="16,0,0,0"/>
 			</StackPanel>
 
-			<!-- Catálogo -->
-			<ItemsControl x:Name="listaCoches" ItemTemplate="{StaticResource TarjetaCoche}">
+			<!-- Catálogo en 3 columnas que ocupan todo el ancho -->
+			<ItemsControl x:Name="listaCoches" ItemTemplate="{StaticResource TarjetaCoche}"
+                          Margin="-8,0,-8,0">
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
-						<WrapPanel/>
+						<UniformGrid Columns="3"/>
 					</ItemsPanelTemplate>
 				</ItemsControl.ItemsPanel>
 			</ItemsControl>

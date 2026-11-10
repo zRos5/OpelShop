@@ -10,7 +10,7 @@
 		<SolidColorBrush x:Key="Negro" Color="#1A1A1A"/>
 		<SolidColorBrush x:Key="FondoApp" Color="#F4F4F4"/>
 
-		<!-- Estilo de las pestañas del menú -->
+		<!-- Estilo de las pestañas del menú (sobre la cabecera amarilla) -->
 		<Style x:Key="BotonMenu" TargetType="RadioButton">
 			<Setter Property="Foreground" Value="{StaticResource Negro}"/>
 			<Setter Property="FontSize" Value="16"/>
@@ -25,10 +25,10 @@
 						</Border>
 						<ControlTemplate.Triggers>
 							<Trigger Property="IsMouseOver" Value="True">
-								<Setter TargetName="Borde" Property="Background" Value="#11000000"/>
+								<Setter TargetName="Borde" Property="Background" Value="#22000000"/>
 							</Trigger>
 							<Trigger Property="IsChecked" Value="True">
-								<Setter TargetName="Borde" Property="BorderBrush" Value="{StaticResource Amarillo}"/>
+								<Setter TargetName="Borde" Property="BorderBrush" Value="{StaticResource Negro}"/>
 							</Trigger>
 						</ControlTemplate.Triggers>
 					</ControlTemplate>
@@ -68,7 +68,7 @@
 		<!-- Botón plano que envuelve la tarjeta de coche (clic y teclado) -->
 		<Style x:Key="BotonTarjeta" TargetType="Button">
 			<Setter Property="Cursor" Value="Hand"/>
-			<Setter Property="Margin" Value="0,0,16,16"/>
+			<Setter Property="Margin" Value="8"/>
 			<Setter Property="Padding" Value="0"/>
 			<Setter Property="Background" Value="Transparent"/>
 			<Setter Property="BorderThickness" Value="0"/>
@@ -81,18 +81,18 @@
 			</Setter>
 		</Style>
 
-		<!-- Tarjeta de coche (la usan Inicio y Galería), con zoom al pasar el ratón -->
+		<!-- Tarjeta de coche (la usan Inicio y Galería): ocupa el ancho de su columna -->
 		<DataTemplate x:Key="TarjetaCoche">
 			<Button Style="{StaticResource BotonTarjeta}" Click="Tarjeta_Click"
                     ToolTip="Ver detalles" AutomationProperties.Name="{Binding Nombre}">
-				<Border x:Name="Tarjeta" Width="260" Background="White"
+				<Border x:Name="Tarjeta" Background="White"
                         CornerRadius="8" BorderBrush="#DDDDDD" BorderThickness="1"
                         RenderTransformOrigin="0.5,0.5">
 					<Border.RenderTransform>
 						<ScaleTransform ScaleX="1" ScaleY="1"/>
 					</Border.RenderTransform>
 					<StackPanel>
-						<Grid Height="150" Background="#E9E9E9">
+						<Grid Height="220" Background="#E9E9E9">
 							<TextBlock Text="{Binding Nombre}" Foreground="#666666" FontSize="14"
                                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
 							<Image Source="{Binding Imagen}" Stretch="UniformToFill"/>
@@ -116,10 +116,10 @@
 							<Storyboard>
 								<DoubleAnimation Storyboard.TargetName="Tarjeta"
                                                  Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-                                                 To="1.04" Duration="0:0:0.15"/>
+                                                 To="1.03" Duration="0:0:0.15"/>
 								<DoubleAnimation Storyboard.TargetName="Tarjeta"
                                                  Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
-                                                 To="1.04" Duration="0:0:0.15"/>
+                                                 To="1.03" Duration="0:0:0.15"/>
 							</Storyboard>
 						</BeginStoryboard>
 					</Trigger.EnterActions>
